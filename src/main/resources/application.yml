@@ -1,0 +1,7 @@
+spring.application.name: spring-validator
+#spring:
+#  main:
+logging:
+  level:
+    com.pushforward: TRACE
+#    web-application-type: none
