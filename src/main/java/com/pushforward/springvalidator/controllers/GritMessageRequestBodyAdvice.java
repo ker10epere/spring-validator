@@ -15,13 +15,11 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 
 @Slf4j
-// assignableTypes targets specific controller.
-@ControllerAdvice(assignableTypes = PetController.class)
-public class PetRequestBodyAdvice extends RequestBodyAdviceAdapter {
+@ControllerAdvice(assignableTypes = GritController.class)
+public class GritMessageRequestBodyAdvice extends RequestBodyAdviceAdapter {
     @Override
     public boolean supports(MethodParameter methodParameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
-        // Must target method with specific RequestBody targetType to validate.
-        boolean isSupported = PetController.Pet.class.getTypeName().equals(targetType.getTypeName());
+        boolean isSupported = GritController.GritMessageRequest.class.getTypeName().equals(targetType.getTypeName());
         log.info("isSupported | {}", isSupported);
         return isSupported;
     }
